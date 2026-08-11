@@ -1,0 +1,35 @@
+# Linux & System Files
+.DS_Store
+*~
+*.swp
+.Trash-*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+env/
+venv/
+ENV/
+
+# Node.js / Web
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# Environment Variables & Secrets (CRITICAL)
+.env
+.env.local
+*.pem
+*.key
+
+# VS Code Specific Settings (Optional)
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json

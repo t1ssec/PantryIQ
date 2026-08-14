@@ -4,48 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/indexstyle.css">
-    <script src="/indexcode.js"></script>
-    <title>Pantry IQ</title>
+    <script src="/indexcode.js" defer></script>
+    <title>PantryIQ</title>
 </head>
 <body>
-    <h1>App Header / NAV</h1>
+    <h1><img src="/assets/logo/PantryIQ.png" id="logo">PantryIQ</h1>
     <div class="headerButtons">
         <button>My Pantry</button>
         <button>Favorites</button>
     </div>
     <div class="mainContent">
-        <div class="InputSection">
-            <a>1. Input Section</a>
-            <input type="text" placeholder="Enter ingredients:">
-        </div>
-        <div class="RecipeSection">
-            <a>2. Recipe Cards</a>
-            <div class="reciperesults">
-                <div class="reciperesult">
-                    <a>🍲 Chicken Stir Fry </a>
-                    <a>Match: 100% (All ingredients)</a>
-                    <div class="reciperesultbuttons">
-                        <button>View Result</button>
-                        <button>Favorite *</button>
+        <div class="otherMainContent">
+            <div class="InputSection">
+                <a>1. Input Section</a>
+                <input type="text" id="firstinputsection" placeholder="Enter ingredients:">
+            </div>
+            <div class="RecipeSection">
+                <a>2. Recipe Cards</a>
+                <div class="reciperesults">
+                    <!--<div class="reciperesult">
+                        <a>🍲 Chicken Stir Fry </a>
+                        <a>Match: 100% (All ingredients)</a>
+                        <div class="reciperesultbuttons">
+                            <button>View Result</button>
+                            <button>Favorite *</button>
+                        </div>
                     </div>
-                </div>
-                <div class="reciperesult">
-                    <a>🍲 Chicken Stir Fry </a>
-                    <a>Match: 100% (All ingredients)</a>
-                    <div class="reciperesultbuttons">
-                        <button>View Result</button>
-                        <button>Favorite *</button>
-                    </div>
+                    <div class="reciperesult">
+                        <a>🍲 Chicken Stir Fry </a>
+                        <a>Match: 100% (All ingredients)</a>
+                        <div class="reciperesultbuttons">
+                            <button>View Result</button>
+                            <button>Favorite *</button>
+                        </div>
+                    </div>-->
                 </div>
             </div>
-        </div>
-        <div class="ShoppingSection">
-            <a>3. SHOPPING LIST</a>
-            <div class="ShoppingList">
-                <a>Missing items auto-added here:</a>
-                <div class="missingitem">
-                    <input type="checkbox">
-                    <a>200g Mozarella Cheese</a>
+            <div class="ShoppingSection">
+                <a>3. SHOPPING LIST</a>
+                <div class="ShoppingList">
+                    <a>Missing items auto-added here:</a>
+                    <div class="missingitem">
+                        <input type="checkbox">
+                        <a>200g Mozarella Cheese</a>
+                    </div>
                 </div>
             </div>
         </div>

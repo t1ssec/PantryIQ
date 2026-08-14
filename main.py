@@ -1,5 +1,5 @@
 import pandas as pd
-from flask import Flask, Response, request
+from flask import Flask, Response, request, send_file
 
 app = Flask(__name__)
 
@@ -11,11 +11,15 @@ def home():
 
 @app.route("/indexstyle.css") # the css file
 def index_style():
-    return Response(open("./frontend/indexstyle.css", mode='r'), mimetype="text/css")
+    return Response(open("./frontend/indexstyle.css", mode='r', encoding='utf-8'), mimetype="text/css; charset=utf-8")
 
 @app.route("/indexcode.js") # the javascript
 def index_code():
-    return Response(open("./frontend/indexcode.js", mode='r'), mimetype="application/javascript")
+    return Response(open("./frontend/indexcode.js", mode='r', encoding='utf-8'), mimetype="application/javascript; charset=utf-8")
+
+@app.route("/assets/logo/PantryIQ.png")
+def pantryiqlogo():
+    return send_file("assets/logo/PantryIQ.png", mimetype="image/png")
 
 @app.route("/recipes/search") # the recipes search
 def search():

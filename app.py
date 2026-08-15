@@ -2,24 +2,39 @@ import pandas as pd
 from flask import Flask, Response, request, send_file
 
 app = Flask(__name__)
-
 df = pd.read_csv("./assets/dataset/full_dataset.csv", on_bad_lines='skip', comment='#', skipinitialspace=True) # reads the data set
 
-@app.route("/") # the home page
+# ASSETS -------------------------------------------------------------------------------------------------------------------
+
+@app.route("/favicon.ico")
+def pantryiqlogo():
+    return send_file("./assets/logo/favicon.ico", mimetype="image/png")
+
+@app.route("/logo.ico")
+def favicon():
+    return send_file("./assets/logo/PantryIQ_Logo.ico", mimetype="image/png")
+
+# HOMEPAGE -----------------------------------------------------------------------------------------------------------------
+
+@app.route("/")
 def home():
     return open("./html/homepage.html", mode='r')
 
-@app.route("/css/homepage.css") # the css file
+# BYINGREDIENTS ------------------------------------------------------------------------------------------------------------
+
+@app.route("/byIngredients")
+def byIngredients():
+    return open("./html/byIngredients.html", mode='r')
+
+@app.route("/css/dark-theme.css")
 def index_style():
-    return Response(open("./css/homepage.css", mode='r', encoding='utf-8'), mimetype="text/css; charset=utf-8")
+    return Response(open("./css/dark-theme.css", mode='r', encoding='utf-8'), mimetype="text/css; charset=utf-8")
 
-@app.route("/js/homepage.js") # the javascript
+@app.route("/js/byIngredients.js")
 def index_code():
-    return Response(open("./js/homepage.js", mode='r', encoding='utf-8'), mimetype="application/javascript; charset=utf-8")
+    return Response(open("./js/byIngredients.js", mode='r', encoding='utf-8'), mimetype="application/javascript; charset=utf-8")
 
-@app.route("/assets/logo/logo.png")
-def pantryiqlogo():
-    return send_file("assets/logo/PantryIQ_Logo.ico", mimetype="image/png")
+# SEARCH API ---------------------------------------------------------------------------------------------------------------
 
 @app.route("/recipes/search") # the recipes search
 def search():
@@ -46,5 +61,6 @@ def by_ingredients():
     recipes = filtered_df.to_dict(orient="records")
     return {"recipes": recipes}
 
+# --------------------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
     app.run(debug=True)

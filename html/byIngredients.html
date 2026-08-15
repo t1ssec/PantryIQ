@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/css/dark-theme.css">
+    <script src="/js/byIngredients.js" defer></script>
+    <title>ByIngredients - PantryIQ</title>
+</head>
+<body>
+    <!-- TOP BAR ---------------------------------------------------------------------------------------------->
+    <div class="navbar">
+        <a href="/"><img src="/favicon.ico" id="logo">PantryIQ</a>
+        <div class="centerme">
+            <a class="active" href="/byIngredients">By Ingredients</a>
+            <a href="">Search Recipes</a>
+            <a href="">Favorites</a>
+        </div>
+    </div >
+
+    <!--MAIN CONTENT ------------------------------------------------------------------------------------------>
+    <div class="mainContent">
+        <div class="otherMainContent">
+            <div class="row">
+                <div class="InputSection">
+                    <a>Search</a>
+                    <input type="text" id="firstinputsection" placeholder="Enter ingredients:">
+                </div>
+                <div class="RecipeSection">
+                    <a>Found Recipes</a>
+                    <div class="reciperesults">
+                        <p class="info">Try searching for something</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ShoppingSection">
+                <a>Ingredients you have</a>
+                <div class="MissingShoppingList">
+                    <p class="info">Try choosing a recipe first.</p>
+                    <!--<div class="shoppingitem">
+                        <input type="checkbox">
+                        <a>200g Mozarella Cheese</a>
+                    </div>-->
+                </div>
+                <a>Missing ingredients</a>
+                <div class="MatchingShoppingList">
+                    <p class="info">Try choosing a recipe first.</p>
+                    <!--<div class="shoppingitem">
+                        <input type="checkbox">
+                        <a>200g Mozarella Cheese</a>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <pre>Devs: tissec, BluelandsMC</pre>
+</body>
+</html>

@@ -1,0 +1,350 @@
+:root {
+    --bg-dark: #0d0f12;
+    --card-bg: #161a22;
+    --card-hover: #1f2430;
+    --border-color: #2d3342;
+    --accent-color: #38bdf8;
+    --accent-hover: #0284c7;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    color: var(--text-primary);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+}
+
+.info {
+    color: gray;
+    font-style: italic;
+}
+
+.navbar {
+    display: flex;
+    background-color: var(--card-bg);
+    overflow: hidden;
+}
+
+.navbar a {
+    color: var(--text-primary);
+    padding: 1vh 1.5vh;
+    text-decoration: none;
+    font-size: medium;
+    transition: ease 0.2s;
+    border-radius: 1vh;
+}
+
+.navbar a:hover {
+    color: var(--text-secondary);
+    background-color: var(--bg-dark);
+}
+
+.navbar a.active {
+    color: var(--text-primary);
+    background-color: var(--bg-dark);
+    border-radius: 1vh;
+}
+
+.navbar a.active:hover {
+    color: var(--text-secondary);
+    background-color: var(--bg-dark);
+}
+
+#logo {
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.headerButtons {
+    justify-content: center;
+    gap: 12px;
+}
+
+.headerButtons button {
+    color: var(--text-primary);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-family: var(--font-stack);
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.headerButtons button:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #000;
+    transform: translateY(-1px);
+}
+
+.centerme {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    transform: translate(-50%);
+    align-self: center;
+    text-align: center;
+    font-size: 1.2rem;
+    gap: 20px;
+}
+
+.centerme a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mainContent {
+    display: flex;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 2rem 1rem;
+}
+
+.otherMainContent {
+    padding: 2rem;
+    width: 80%;
+    max-width: 1000px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--card-bg);
+}
+
+.InputSection {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+}
+
+.InputSection input {
+    padding: 10px 14px;
+    margin-top: 1vh;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.InputSection input:focus {
+    border-color: var(--accent-color);
+}
+
+.RecipeSection {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+    margin-top: 2rem;
+}
+
+.RecipeSection a {
+    display: flex;
+    text-align: left;
+}
+
+.reciperesults {
+    margin-top: 1vh;
+    padding: 1rem 2rem;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 1vh;
+    background-color: var(--bg-dark);
+}
+
+.reciperesult {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 2vh;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.reciperesult:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.reciperesult a {
+    text-align: left;
+}
+
+.reciperesultbuttons button {
+    flex: 1;
+    padding: 8px 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.reciperesultbuttons button:hover {
+    background-color: var(--border-color);
+}
+
+.ShoppingSection {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 4vh;
+    gap: 10px;
+}
+
+.ShoppingSection a {
+    text-align: left;
+}
+
+.MissingShoppingList {
+    flex-direction: column;
+    gap: 8px;
+    padding: 1rem 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1vh;
+    background-color: var(--bg-dark);
+}
+
+.MatchingShoppingList {
+    flex-direction: column;
+    gap: 8px;
+    padding: 1rem 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1vh;
+    background-color: var(--bg-dark);
+}
+
+.shoppingitem {
+    margin-bottom: 1vh;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background-color: var(--bg-dark);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.shoppingitem input[type="checkbox"] {
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+#firstinputsection {
+    font-style: italic;
+}
+
+pre {
+  color: var(--text-secondary);
+  font-family: "Fira Code", "Cascadia Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: center;
+}
+
+
+/* From Uiverse.io by iZOXVL Modified by tissec */ 
+.boton-elegante {
+  padding: 15px 30px;
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.4s ease;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.boton-elegante::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.boton-elegante:hover::after {
+  transform: scale(4);
+}
+
+.boton-elegante:hover {
+  border-color: #666666;
+  background: #292929;
+}
+/* ------------------------------------------------------- */
+
+
+/* From Uiverse.io by Creatlydev Modified by tissec*/ 
+.btn-github {
+  cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
+  border: none;
+
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 100px;
+  font-weight: 800;
+  place-content: center;
+
+  padding: 0.75rem 1rem;
+  font-size: 0.825rem;
+  line-height: 1rem;
+
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  color: #fff;
+}
+
+.btn-github:hover {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 0 1px rgba(252, 232, 3, 0.08);
+  color: #fce803;
+  transform: translate(0, -0.25rem);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* ------------------------------------------------------- */

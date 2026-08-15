@@ -44,13 +44,13 @@ function handleChooseBtnClick(ingredientsList) {
         !seperatedInputValue.some(input => ingredient.includes(input))
     )
 
-    document.querySelector('.MatchingShoppingList').innerHTML = '<a>Missing items auto-added here:</a>';
-    document.querySelector('.MissingShoppingList').innerHTML = '<a>Matching items:</a>';
+    document.querySelector('.MatchingShoppingList').innerHTML = ''; // to remove the old stuff
+    document.querySelector('.MissingShoppingList').innerHTML = ''; // to remove the old stuff
 
     matchingIngredients.forEach(ingredient => {
         const newDiv = document.createElement('div');
         newDiv.className = 'shoppingitem';
-        newDiv.innerHTML = `<input type="checkbox" class="shoppingcheckbox" checked><a>${ingredient}</a>`
+        newDiv.innerHTML = `<input type="checkbox" class="shoppingcheckbox" checked><a> ${ingredient}</a>`
 
         document.querySelector('.MissingShoppingList').appendChild(newDiv);
     });
@@ -58,7 +58,7 @@ function handleChooseBtnClick(ingredientsList) {
     nonMatchingIngredients.forEach(ingredient => {
         const newDiv = document.createElement('div');
         newDiv.className = 'shoppingitem';
-        newDiv.innerHTML = `<input type="checkbox" class="shoppingcheckbox"><a>${ingredient}</a>`
+        newDiv.innerHTML = `<input type="checkbox" class="shoppingcheckbox"><a> ${ingredient}</a>`
 
         document.querySelector('.MatchingShoppingList').appendChild(newDiv);
     });
@@ -119,7 +119,8 @@ function donetypingfunc() {
 
             const jsonEscaped = JSON.stringify(ingredientsList).replace(/"/g, '&quot;')
             recipeCard.innerHTML = `
-                    <a>🍲 ${recipe.title} </a>
+                    <a>${recipe.title} </a>
+                    <hr>
                     <a>${fullIngridientsString}</a>
                     <div class="reciperesultbuttons">
                         <button onclick="window.open('https://${recipe.link}', '_blank')">View Result</button>

@@ -33,6 +33,33 @@ h1 {
     margin-bottom: 1rem;
 }
 
+#logo {
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.navbar {
+  background-color: #333;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
 .mainContent {
     display: flex;
 }
@@ -140,13 +167,13 @@ h1 {
     text-align: left;
 }
 
-.ShoppingList {
+.MissingShoppingList {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.missingitem {
+.shoppingitem {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -156,7 +183,7 @@ h1 {
     border: 1px solid var(--border-color);
 }
 
-.missingitem input[type="checkbox"] {
+.shoppingitem input[type="checkbox"] {
     accent-color: var(--accent-color);
     cursor: pointer;
 }

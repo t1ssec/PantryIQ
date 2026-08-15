@@ -17,9 +17,9 @@ def index_style():
 def index_code():
     return Response(open("./frontend/indexcode.js", mode='r', encoding='utf-8'), mimetype="application/javascript; charset=utf-8")
 
-@app.route("/assets/logo/PantryIQ.png")
+@app.route("/assets/logo/logo.png")
 def pantryiqlogo():
-    return send_file("assets/logo/PantryIQ.png", mimetype="image/png")
+    return send_file("assets/logo/PantryIQ_Logo.ico", mimetype="image/png")
 
 @app.route("/recipes/search") # the recipes search
 def search():

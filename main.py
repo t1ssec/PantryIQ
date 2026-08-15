@@ -7,15 +7,15 @@ df = pd.read_csv("./assets/dataset/full_dataset.csv", on_bad_lines='skip', comme
 
 @app.route("/") # the home page
 def home():
-    return open("./frontend/index.html", mode='r')
+    return open("./html/homepage.html", mode='r')
 
-@app.route("/indexstyle.css") # the css file
+@app.route("/css/homepage.css") # the css file
 def index_style():
-    return Response(open("./frontend/indexstyle.css", mode='r', encoding='utf-8'), mimetype="text/css; charset=utf-8")
+    return Response(open("./css/homepage.css", mode='r', encoding='utf-8'), mimetype="text/css; charset=utf-8")
 
-@app.route("/indexcode.js") # the javascript
+@app.route("/js/homepage.js") # the javascript
 def index_code():
-    return Response(open("./frontend/indexcode.js", mode='r', encoding='utf-8'), mimetype="application/javascript; charset=utf-8")
+    return Response(open("./js/homepage.js", mode='r', encoding='utf-8'), mimetype="application/javascript; charset=utf-8")
 
 @app.route("/assets/logo/logo.png")
 def pantryiqlogo():
@@ -41,7 +41,7 @@ def by_ingredients():
            ingredients_list.append(cleaned_item)  # adds to the list
 
     for ingredient in ingredients_list:
-        filtered_df = filtered_df[filtered_df["NER"].str.contains(ingredient, case=False, na=False)]
+        filtered_df = filtered_df[filtered_df["ingredients"].str.contains(ingredient, case=False, na=False)]
 
     recipes = filtered_df.to_dict(orient="records")
     return {"recipes": recipes}

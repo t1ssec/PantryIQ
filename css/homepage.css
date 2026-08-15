@@ -50,14 +50,27 @@ h1 {
 }
 
 .centerme {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    transform: translate(-50%);
+    align-self: center;
     text-align: center;
+    font-size: 1.2rem;
+    gap: 20px;
+}
+
+.centerme a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .navbar {
-  background-color: #1c2027;
-  overflow: hidden;
-  padding: 10px;
-  
+    display: flex;
+    background-color: #1c2027;
+    overflow: hidden;
+    padding: 10px;
 }
 
 .navbar a {

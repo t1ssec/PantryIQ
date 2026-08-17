@@ -10,7 +10,7 @@ const typingInterval = 500;
 
 const recipeContainerDiv = document.querySelector('.reciperesults');
 
-typingInput.addEventListener('input', () => {
+typingInput.addEventListener('input', () => {                           // add event listener for when someone starts typing
     clearTimeout(typingTimer);
     typingTimer = setTimeout(donetypingfunc, typingInterval);
 })
@@ -74,7 +74,7 @@ function donetypingfunc() {
         recipeContainerDiv.innerHTML = '';
         return;
     }
-    fetch('/recipes/search/by-ingredients?search=' + encodeURIComponent(texta) + '&allow_missing_ingredients=false') /* Temporarily set to false */
+    fetch('/recipes/search/by-ingredients?q=' + encodeURIComponent(texta) + '&allow_missing_ingredients=false') /* temporarily set to false */
     .then(response => response.json())
     .then(data => {
         recipeContainerDiv.innerHTML = '';

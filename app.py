@@ -30,33 +30,41 @@ def searchRecipesJs():
 
 @app.route("/")
 def home():
-    return open("./html/homepage.html", mode='r')
+    return open("./html/homepage.html", mode='r', encoding='utf-8')
 
 @app.route("/byIngredients")
 def byIngredients():
-    return open("./html/byIngredients.html", mode='r')
+    return open("./html/byIngredients.html", mode='r', encoding='utf-8')
 
 @app.route("/favorites")
 def favorites():
-    return open("./html/favorites.html", mode='r')
+    return open("./html/favorites.html", mode='r', encoding='utf-8')
 
 @app.route("/searchrecipes")
 def searchrecipe():
-    return open("./html/searchrecipes.html", mode='r')
+    return open("./html/searchrecipes.html", mode='r', encoding='utf-8')
 
 # SEARCH API ---------------------------------------------------------------------------------------------------------------
 
 @app.route("/recipes/search") # the recipes search
 def search():
     raw_search = request.args.get("q", "")                                              # gets ?q="SEARCH-TERM"
+    page = request.args.get("page", 1, type=int)
+    per_page = 9
     filtered_df = df[df["recipe_name"].str.contains(raw_search, case=False, na=False)]  # searches in the dataframe and writes it to a variable
 
-    recipes = filtered_df.to_dict(orient="records")
+    start = (page - 1) * per_page
+    end = start + per_page
+
+    recipes = filtered_df.to_dict(orient="records")[start:end]
     return {"recipes": recipes}
 
 @app.route("/recipes/search/by-ingredients")      # the recipes search by ingredients
 def by_ingredients():
     raw_search = request.args.get("q", "")
+    page = request.args.get("page", 1, type=int)
+    per_page = 9
+
     filtered_df = df
     ingredients_list = []
     for item in raw_search.split(","):            # removes the ","
@@ -68,7 +76,10 @@ def by_ingredients():
     for ingredient in ingredients_list:
         filtered_df = filtered_df[filtered_df["ingredients"].str.contains(ingredient, case=False, na=False)]
 
-    recipes = filtered_df.to_dict(orient="records")
+    start = (page - 1) * per_page
+    end = start + per_page
+
+    recipes = filtered_df.to_dict(orient="records")[start:end]
     return {"recipes": recipes}
 
 # --------------------------------------------------------------------------------------------------------------------------

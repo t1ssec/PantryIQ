@@ -93,7 +93,7 @@ function donetypingfunc() {
             data.recipes.forEach(recipe => {
                 let ingredientsList = [];
                 try {
-                    ingredientsList = typeof recipe.ingredients === 'string' ? JSON.parse(recipe.ingredients) : recipe.ingredients;
+                    ingredientsList = typeof recipe.ingredient_lines === 'string' ? JSON.parse(recipe.ingredient_lines) : recipe.ingredient_lines;
                 } catch (e) {
                     ingredientsList = [];
                 }
@@ -119,11 +119,11 @@ function donetypingfunc() {
 
                 const jsonEscaped = JSON.stringify(ingredientsList).replace(/"/g, '&quot;')
                 recipeCard.innerHTML = `
-                    <a>${recipe.title} </a>
+                    <a>${recipe.recipe_name} </a>
                     <hr>
                     <a>${fullIngridientsString}</a>
                     <div class="reciperesultbuttons">
-                        <button onclick="window.open('https://${recipe.link}', '_blank')">View Result</button>
+                        <button onclick="window.open('https://${recipe.url}', '_blank')">View Result</button>
                         <button onclick="handleChooseBtnClick(${jsonEscaped})" id="chooseBtn">Choose</button>
                         <button>Favorite *</button>
                     </div>

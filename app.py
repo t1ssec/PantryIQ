@@ -48,17 +48,16 @@ def searchrecipe():
 
 @app.route("/recipes/search") # the recipes search
 def search():
-    raw_search = request.args.get("q", "")                                        # gets ?q="SEARCH-TERM"
-    filtered_df = df[df["title"].str.contains(raw_search, case=False, na=False)]  # searches in the dataframe and writes it to a variable
+    raw_search = request.args.get("q", "")                                              # gets ?q="SEARCH-TERM"
+    filtered_df = df[df["recipe_name"].str.contains(raw_search, case=False, na=False)]  # searches in the dataframe and writes it to a variable
+
     recipes = filtered_df.to_dict(orient="records")
     return {"recipes": recipes}
 
 @app.route("/recipes/search/by-ingredients")      # the recipes search by ingredients
 def by_ingredients():
     raw_search = request.args.get("q", "")
-    
     filtered_df = df
-
     ingredients_list = []
     for item in raw_search.split(","):            # removes the ","
        cleaned_item = item.strip()                # removes the " "
@@ -67,7 +66,7 @@ def by_ingredients():
            ingredients_list.append(cleaned_item)  # adds to the list
 
     for ingredient in ingredients_list:
-        filtered_df = filtered_df[filtered_df["NER"].str.contains(ingredient, case=False, na=False)]
+        filtered_df = filtered_df[filtered_df["ingredients"].str.contains(ingredient, case=False, na=False)]
 
     recipes = filtered_df.to_dict(orient="records")
     return {"recipes": recipes}

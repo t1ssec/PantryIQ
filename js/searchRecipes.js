@@ -69,12 +69,12 @@ function handleChooseBtnClick(ingredientsList) {                    // handles w
 
 function donetypingfunc() {
     console.log("Potrebitelq sprq da pishe");
-    const texta = typingInput.value;
-    if (!texta.trim()) {
+    const userInput = typingInput.value;
+    if (!userInput.trim()) {
         recipeContainerDiv.innerHTML = '';
         return;
     }
-    fetch('/recipes/search?q=' + encodeURIComponent(texta) + '&allow_missing_ingredients=true') /* Temporarily set to false */
+    fetch('/recipes/search?q=' + encodeURIComponent(userInput) + '&allow_missing_ingredients=true') /* Temporarily set to false */
         .then(response => response.json())
         .then(data => {
             recipeContainerDiv.innerHTML = '';

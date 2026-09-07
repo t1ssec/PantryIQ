@@ -14,6 +14,10 @@ env/
 venv/
 ENV/
 
+# dataset
+assets/dataset/full_dataset.csv
+
+
 # Node.js / Web
 node_modules/
 npm-debug.log*

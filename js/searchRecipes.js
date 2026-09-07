@@ -18,7 +18,7 @@ typingInput.addEventListener('input', () => {                      // add event 
 document.addEventListener('change', function (event) {
     if (event.target && event.target.classList.contains('shoppingcheckbox')) {
         const checkbox = event.target;
-        
+
         const parentDiv = checkbox.closest('.shoppingitem');
 
         if (checkbox.checked) {
@@ -37,10 +37,10 @@ function handleChooseBtnClick(ingredientsList) {                    // handles w
 
     const recipesIngredients = ingredientsList.map(item => item.trim().toLowerCase());
 
-    const matchingIngredients = recipesIngredients.filter(recipe => 
+    const matchingIngredients = recipesIngredients.filter(recipe =>
         seperatedInputValue.some(input => recipe.includes(input))
     )
-    const nonMatchingIngredients = recipesIngredients.filter(recipe => 
+    const nonMatchingIngredients = recipesIngredients.filter(recipe =>
         !seperatedInputValue.some(input => recipe.includes(input))
     )
 
@@ -74,51 +74,51 @@ function donetypingfunc() {
         recipeContainerDiv.innerHTML = '';
         return;
     }
-    fetch('/recipes/search?q=' + encodeURIComponent(texta) + '&allow_missing_ingredients=false') /* Temporarily set to false */
-    .then(response => response.json())
-    .then(data => {
-        recipeContainerDiv.innerHTML = '';
+    fetch('/recipes/search?q=' + encodeURIComponent(texta) + '&allow_missing_ingredients=true') /* Temporarily set to false */
+        .then(response => response.json())
+        .then(data => {
+            recipeContainerDiv.innerHTML = '';
 
-        if (!data.recipes || data.recipes.length === 0) {
-            recipeContainerDiv.innerHTML = `
+            if (!data.recipes || data.recipes.length === 0) {
+                recipeContainerDiv.innerHTML = `
                 <div class="reciperesult">
                     <a>No recipes found</a>
                     <a>Try searching for different ingredients</a>
                 </div>
             `;
-            return;
-        }
-
-        let amountOfRecipes = 0;
-        data.recipes.forEach(recipe => {
-            let ingredientsList = [];
-            try {
-                ingredientsList = typeof recipe.ingredients === 'string' ? JSON.parse(recipe.ingredients) : recipe.ingredients;
-            } catch (e) {
-                ingredientsList = [];
-            }
-
-            amountOfRecipes++;
-            if (amountOfRecipes > 10) {
                 return;
             }
 
-            let fullIngridientsString;
-
-            ingredientsList.forEach((recipe, index) => {
-                if (fullIngridientsString === undefined) {
-                    fullIngridientsString = recipe;
+            let amountOfRecipes = 0;
+            data.recipes.forEach(recipe => {
+                let ingredientsList = [];
+                try {
+                    ingredientsList = typeof recipe.ingredients === 'string' ? JSON.parse(recipe.ingredients) : recipe.ingredients;
+                } catch (e) {
+                    ingredientsList = [];
                 }
-                else {
-                    fullIngridientsString += ', ' + recipe;
+
+                amountOfRecipes++;
+                if (amountOfRecipes > 10) {
+                    return;
                 }
-            })
 
-            const recipeCard = document.createElement('div');
-            recipeCard.className = 'reciperesult';
+                let fullIngridientsString;
 
-            const jsonEscaped = JSON.stringify(ingredientsList).replace(/"/g, '&quot;')
-            recipeCard.innerHTML = `
+                ingredientsList.forEach((recipe, index) => {
+                    if (fullIngridientsString === undefined) {
+                        fullIngridientsString = recipe;
+                    }
+                    else {
+                        fullIngridientsString += ', ' + recipe;
+                    }
+                })
+
+                const recipeCard = document.createElement('div');
+                recipeCard.className = 'reciperesult';
+
+                const jsonEscaped = JSON.stringify(ingredientsList).replace(/"/g, '&quot;')
+                recipeCard.innerHTML = `
                     <a>${recipe.title} </a>
                     <hr>
                     <a>${fullIngridientsString}</a>
@@ -129,9 +129,9 @@ function donetypingfunc() {
                     </div>
             `;
 
-            recipeContainerDiv.appendChild(recipeCard);
-        });
+                recipeContainerDiv.appendChild(recipeCard);
+            });
 
-        console.log(data);
-    });
+            console.log(data);
+        });
 }

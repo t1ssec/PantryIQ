@@ -49,7 +49,6 @@ def searchrecipe():
 @app.route("/recipes/search") # the recipes search
 def search():
     raw_search = request.args.get("q", "")                                        # gets ?q="SEARCH-TERM"
-    raw_search = f" {raw_search} "
     filtered_df = df[df["title"].str.contains(raw_search, case=False, na=False)]  # searches in the dataframe and writes it to a variable
     recipes = filtered_df.to_dict(orient="records")
     return {"recipes": recipes}

@@ -68,7 +68,7 @@ function handleChooseBtnClick(ingredientsList) {
 }
 
 function donetypingfunc() {
-    console.log("Potrebitelq sprq da pishe");
+    console.log("The user stopped typing.");
     const texta = typingInput.value;
     if (!texta.trim()) {
         recipeContainerDiv.innerHTML = '';

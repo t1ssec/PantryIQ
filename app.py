@@ -8,11 +8,11 @@ df = pd.read_csv("./assets/dataset/full_dataset.csv", on_bad_lines='skip', comme
 
 @app.route("/favicon.ico")
 def pantryiqlogo():
-    return send_file("./assets/logo/favicon.ico", mimetype="image/png")
+    return send_file("./assets/logo/fi.ico", mimetype="image/png")
 
 @app.route("/logo.ico")
 def favicon():
-    return send_file("./assets/logo/PantryIQ_Logo.ico", mimetype="image/png")
+    return send_file("./assets/logo/pl.png", mimetype="image/png")
 
 @app.route("/css/dark-theme.css")
 def dark_theme():

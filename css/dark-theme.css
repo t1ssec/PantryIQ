@@ -1,20 +1,67 @@
 :root {
-    --bg-dark: #1a1a1a;
-    /* #0d0f12 */
-    --card-bg: #161a22;
-    --button-bg: #212631;
-    --card-hover: #1f2430;
-    --border-color: #2d3342;
-    --accent-color: #212631;
-    --accent-hover: #404246;
-    --text-primary: #f3f4f6;
-    --text-secondary: #9ca3af;
+    /** Base text colors */
+    --pantry-theme-light-a0: #ffffff;
+    --pantry-theme-dark-a0: #000000;
+
+    /** Theme primary colors */
+    --pantry-theme-primary-a0: #918ea8;
+    --pantry-theme-primary-a10: #9b99b0;
+    --pantry-theme-primary-a20: #a6a4b9;
+    --pantry-theme-primary-a30: #b1afc2;
+    --pantry-theme-primary-a40: #bcbaca;
+    --pantry-theme-primary-a50: #c6c5d3;
+
+    /** Theme surface colors */
+    --pantry-theme-surface-a0: #121212;
+    --pantry-theme-surface-a10: #252525;
+    --pantry-theme-surface-a20: #393939;
+    --pantry-theme-surface-a30: #4f4f4f;
+    --pantry-theme-surface-a40: #666;
+    --pantry-theme-surface-a50: #7d7d7d;
+
+    /** Theme tonal surface colors */
+    --pantry-theme-surface-tonal-a0: #1d1d1f;
+    --pantry-theme-surface-tonal-a10: #303032;
+    --pantry-theme-surface-tonal-a20: #434345;
+    --pantry-theme-surface-tonal-a30: #58585a;
+    --pantry-theme-surface-tonal-a40: #6e6e70;
+    --pantry-theme-surface-tonal-a50: #858586;
+
+    /** Success colors */
+    --pantry-theme-success-a0: #7dff95;
+    --pantry-theme-success-a10: #9dffac;
+    --pantry-theme-success-a20: #b8ffc1;
+
+    /** Warning colors */
+    --pantry-theme-warning-a0: #ffbc5e;
+    --pantry-theme-warning-a10: #ffca83;
+    --pantry-theme-warning-a20: #ffd8a4;
+
+    /** Danger colors */
+    --pantry-theme-danger-a0: #ff8080;
+    --pantry-theme-danger-a10: #ff9b99;
+    --pantry-theme-danger-a20: #ffb5b2;
+
+    /** Info colors */
+    --pantry-theme-info-a0: #87d1ff;
+    --pantry-theme-info-a10: #a1dbff;
+    --pantry-theme-info-a20: #b9e4ff;
+
+    --bg-dark: var(--pantry-theme-surface-a0);
+    --card-bg: var(--pantry-theme-surface-tonal-a0);
+    --button-bg: var(--pantry-theme-surface-a10);
+    --card-hover: var(--pantry-theme-surface-tonal-a10);
+    --border-color: var(--pantry-theme-surface-tonal-a20);
+    --accent-color: var(--pantry-theme-surface-a10);
+    --accent-hover: var(--pantry-theme-surface-a20);
+    --text-primary: var(--pantry-theme-light-a0);
+    --text-secondary: var(--pantry-theme-surface-a50);
     --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'Courier New', Courier, monospace;
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--pantry-theme-surface-a0);
     color: var(--text-primary);
     font-family: var(--font-stack);
     line-height: 1.5;
@@ -23,12 +70,12 @@ body {
 }
 
 a {
-    color: white;
+    color: var(--pantry-theme-light-a0);
     font-family: 'Courier New', Courier, monospace;
 }
 
 h1 {
-    color: var(--text-primary);
+    color: var(--pantry-theme-light-a0);
     text-align: center;
     font-family: var(--font-mono);
     font-size: 2rem;
@@ -38,10 +85,10 @@ h1 {
 button {
     flex: 1;
     padding: 8px 12px;
-    background-color: var(--button-bg);
-    border: 1px solid var(--border-color);
+    background-color: var(--pantry-theme-surface-tonal-a10);
+    border: 1px solid var(--pantry-theme-surface-tonal-a30);
     border-radius: 10px;
-    color: var(--text-primary);
+    color: var(--pantry-theme-light-a0);
     font-size: 0.85rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -63,12 +110,12 @@ button {
 
 .navbar {
     display: flex;
-    background-color: var(--card-bg);
+    background-color: var(--pantry-theme-surface-tonal-a0);
     overflow: hidden;
 }
 
 .navbar a {
-    color: var(--text-primary);
+    color: var(--pantry-theme-light-a0);
     padding: 1vh 1.5vh;
     text-decoration: none;
     font-size: medium;
@@ -77,19 +124,19 @@ button {
 }
 
 .navbar a:hover {
-    color: var(--text-secondary);
-    background-color: var(--accent-color);
+    color: var(--pantry-theme-light-a0);
+    background-color: var(--pantry-theme-surface-a10);
 }
 
 .navbar a.active {
-    color: var(--text-primary);
-    background-color: var(--accent-color);
+    color: var(--pantry-theme-light-a0);
+    background-color: var(--pantry-theme-surface-a10);
     border-radius: 1vh;
 }
 
 .navbar a.active:hover {
-    color: var(--text-secondary);
-    background-color: var(--accent-color);
+    color: var(--pantry-theme-light-a0);
+    background-color: var(--pantry-theme-surface-a20);
 }
 
 #logo {
@@ -104,9 +151,9 @@ button {
 }
 
 .headerButtons button {
-    color: var(--text-primary);
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
+    color: var(--pantry-theme-light-a0);
+    background-color: var(--pantry-theme-surface-tonal-a0);
+    border: 1px solid var(--pantry-theme-surface-tonal-a20);
     border-radius: 8px;
     padding: 8px 18px;
     font-family: var(--font-stack);
@@ -117,9 +164,9 @@ button {
 }
 
 .headerButtons button:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: #000;
+    background-color: var(--pantry-theme-primary-a0);
+    border-color: var(--pantry-theme-primary-a0);
+    color: var(--pantry-theme-dark-a0);
     transform: translateY(-1px);
 }
 
@@ -151,9 +198,9 @@ button {
 .otherMainContent {
     padding: 2rem;
     width: 80%;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--pantry-theme-surface-tonal-a20);
     border-radius: 12px;
-    background-color: var(--card-bg);
+    background-color: var(--pantry-theme-surface-tonal-a0);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
@@ -167,17 +214,17 @@ button {
 .InputSection input {
     padding: 10px 14px;
     margin-top: 1vh;
-    background-color: var(--accent-color);
-    border: 1px solid var(--border-color);
+    background-color: var(--pantry-theme-surface-a10);
+    border: 1px solid var(--pantry-theme-surface-tonal-a20);
     border-radius: 8px;
-    color: var(--text-primary);
+    color: var(--pantry-theme-light-a0);
     font-size: 0.95rem;
     outline: none;
     transition: border-color 0.2s ease;
 }
 
 .InputSection input:focus {
-    border-color: var(--accent-color);
+    border-color: var(--pantry-theme-primary-a0);
 }
 
 .RecipeSection {

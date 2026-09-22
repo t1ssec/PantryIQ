@@ -63,7 +63,7 @@ def search():
 def by_ingredients():
     raw_search = request.args.get("q", "")
     page = request.args.get("page", 1, type=int)
-    per_page = 9
+    per_page = 12
 
     filtered_df = df
     ingredients_list = []

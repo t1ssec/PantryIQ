@@ -1,10 +1,12 @@
 :root {
-    --bg-dark: #0d0f12;
+    --bg-dark: #1a1a1a;
+    /* #0d0f12 */
     --card-bg: #161a22;
+    --button-bg: #212631;
     --card-hover: #1f2430;
     --border-color: #2d3342;
-    --accent-color: #38bdf8;
-    --accent-hover: #0284c7;
+    --accent-color: #212631;
+    --accent-hover: #404246;
     --text-primary: #f3f4f6;
     --text-secondary: #9ca3af;
     --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -33,6 +35,27 @@ h1 {
     letter-spacing: -0.5px;
 }
 
+button {
+    flex: 1;
+    padding: 8px 12px;
+    background-color: var(--button-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.row {
+    display: flex;
+    //*    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    **/
+}
+
 .info {
     color: gray;
     font-style: italic;
@@ -55,18 +78,18 @@ h1 {
 
 .navbar a:hover {
     color: var(--text-secondary);
-    background-color: var(--bg-dark);
+    background-color: var(--accent-color);
 }
 
 .navbar a.active {
     color: var(--text-primary);
-    background-color: var(--bg-dark);
+    background-color: var(--accent-color);
     border-radius: 1vh;
 }
 
 .navbar a.active:hover {
     color: var(--text-secondary);
-    background-color: var(--bg-dark);
+    background-color: var(--accent-color);
 }
 
 #logo {
@@ -131,6 +154,7 @@ h1 {
     border: 1px solid var(--border-color);
     border-radius: 12px;
     background-color: var(--card-bg);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .InputSection {
@@ -143,7 +167,7 @@ h1 {
 .InputSection input {
     padding: 10px 14px;
     margin-top: 1vh;
-    background-color: var(--bg-dark);
+    background-color: var(--accent-color);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     color: var(--text-primary);
@@ -175,13 +199,13 @@ h1 {
     flex-direction: column;
     gap: 12px;
     border-radius: 1vh;
-    background-color: var(--bg-dark);
+    background-color: var(--accent-color);
     border: 1px solid var(--border-color);
     max-height: 350px;
     overflow-y: auto;
 
     scrollbar-width: thin;
-    scrollbar-color: var(--accent-color) var(--bg-dark);
+    scrollbar-color: rgb(0, 132, 255) var(--accent-color);
 }
 
 .reciperesult {
@@ -238,12 +262,12 @@ h1 {
     padding: 1rem 2rem;
     border: 1px solid var(--border-color);
     border-radius: 1vh;
-    background-color: var(--bg-dark);
+    background-color: var(--accent-color);
     max-height: 350px;
     overflow-y: auto;
 
     scrollbar-width: thin;
-    scrollbar-color: var(--accent-color) var(--bg-dark);
+    scrollbar-color: rgb(0, 132, 255) var(--accent-color);
 }
 
 .MatchingShoppingList {
@@ -252,19 +276,19 @@ h1 {
     padding: 1rem 2rem;
     border: 1px solid var(--border-color);
     border-radius: 1vh;
-    background-color: var(--bg-dark);
+    background-color: var(--accent-color);
     max-height: 350px;
     overflow-y: auto;
 
     scrollbar-width: thin;
-    scrollbar-color: var(--accent-color) var(--bg-dark);
+    scrollbar-color: rgb(0, 132, 255) var(--accent-color);
 }
 
 .shoppingitem {
     margin-bottom: 1vh;
     align-items: center;
     gap: 10px;
-    background-color: var(--bg-dark);
+    background-color: var(--accent-color);
     /*
     border-radius: 6px;
     border: 1px solid var(--border-color);
@@ -288,79 +312,9 @@ pre {
     text-align: center;
 }
 
-
-/* From Uiverse.io by iZOXVL Modified by tissec */
-.boton-elegante {
-    padding: 15px 30px;
-    border: 2px solid var(--border-color);
-    background-color: var(--bg-dark);
-    color: #ffffff;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 30px;
-    transition: all 0.4s ease;
-    outline: none;
-    position: relative;
-    overflow: hidden;
-    font-weight: bold;
+.recipeImg {
+    width: 20%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
-
-.boton-elegante::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle,
-            rgba(255, 255, 255, 0.25) 0%,
-            rgba(255, 255, 255, 0) 70%);
-    transform: scale(0);
-    transition: transform 0.5s ease;
-}
-
-.boton-elegante:hover::after {
-    transform: scale(4);
-}
-
-.boton-elegante:hover {
-    border-color: #666666;
-    background: #292929;
-}
-
-/* ------------------------------------------------------- */
-
-
-/* From Uiverse.io by Creatlydev Modified by tissec*/
-.btn-github {
-    cursor: pointer;
-    display: flex;
-    gap: 0.5rem;
-    border: none;
-
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border-radius: 100px;
-    font-weight: 800;
-    place-content: center;
-
-    padding: 0.75rem 1rem;
-    font-size: 0.825rem;
-    line-height: 1rem;
-
-    background-color: rgba(0, 0, 0, 0.4);
-    box-shadow:
-        inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-    color: #fff;
-}
-
-.btn-github:hover {
-    box-shadow:
-        inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
-        inset 0 0 0 1px rgba(252, 232, 3, 0.08);
-    color: #fce803;
-    transform: translate(0, -0.25rem);
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* ------------------------------------------------------- */

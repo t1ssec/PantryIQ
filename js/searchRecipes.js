@@ -119,14 +119,15 @@ function donetypingfunc() {
 
                 const jsonEscaped = JSON.stringify(ingredientsList).replace(/"/g, '&quot;')
                 recipeCard.innerHTML = `
-                    <a>${recipe.recipe_name} </a>
-                    <hr>
-                    <a>${fullIngridientsString}</a>
-                    <div class="reciperesultbuttons">
-                        <button onclick="window.open('https://${recipe.url}', '_blank')">View Result</button>
-                        <button onclick="handleChooseBtnClick(${jsonEscaped})" id="chooseBtn">Choose</button>
-                        <button>Favorite *</button>
-                    </div>
+                    <img class="recipeImg" src="${recipe.image_url}" alt="${recipe.recipe_name}">
+                        <a>${recipe.recipe_name} </a>
+                        <hr>
+                        <a>${fullIngridientsString}</a>
+                        <div class="reciperesultbuttons">
+                            <button onclick="window.open('https://${recipe.url}', '_blank')">View Result</button>
+                            <button onclick="handleChooseBtnClick(${jsonEscaped})" id="chooseBtn">Choose</button>
+                            <button>Favorite *</button>
+                        </div>
             `;
 
                 recipeContainerDiv.appendChild(recipeCard);

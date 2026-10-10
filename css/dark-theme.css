@@ -1,9 +1,9 @@
 :root {
-    /** Base text colors */
+    /* Base text colors */
     --pantry-theme-light-a0: #ffffff;
     --pantry-theme-dark-a0: #000000;
 
-    /** Theme primary colors */
+    /* Theme primary colors */
     --pantry-theme-primary-a0: #918ea8;
     --pantry-theme-primary-a10: #9b99b0;
     --pantry-theme-primary-a20: #a6a4b9;
@@ -11,7 +11,7 @@
     --pantry-theme-primary-a40: #bcbaca;
     --pantry-theme-primary-a50: #c6c5d3;
 
-    /** Theme surface colors */
+    /* Theme surface colors */
     --pantry-theme-surface-a0: #121212;
     --pantry-theme-surface-a10: #252525;
     --pantry-theme-surface-a20: #393939;
@@ -19,7 +19,7 @@
     --pantry-theme-surface-a40: #666;
     --pantry-theme-surface-a50: #7d7d7d;
 
-    /** Theme tonal surface colors */
+    /* Theme tonal surface colors */
     --pantry-theme-surface-tonal-a0: #1d1d1f;
     --pantry-theme-surface-tonal-a10: #303032;
     --pantry-theme-surface-tonal-a20: #434345;
@@ -27,22 +27,22 @@
     --pantry-theme-surface-tonal-a40: #6e6e70;
     --pantry-theme-surface-tonal-a50: #858586;
 
-    /** Success colors */
+    /* Success colors */
     --pantry-theme-success-a0: #7dff95;
     --pantry-theme-success-a10: #9dffac;
     --pantry-theme-success-a20: #b8ffc1;
 
-    /** Warning colors */
+    /* Warning colors */
     --pantry-theme-warning-a0: #ffbc5e;
     --pantry-theme-warning-a10: #ffca83;
     --pantry-theme-warning-a20: #ffd8a4;
 
-    /** Danger colors */
+    /* Danger colors */
     --pantry-theme-danger-a0: #ff8080;
     --pantry-theme-danger-a10: #ff9b99;
     --pantry-theme-danger-a20: #ffb5b2;
 
-    /** Info colors */
+    /* Info colors */
     --pantry-theme-info-a0: #87d1ff;
     --pantry-theme-info-a10: #a1dbff;
     --pantry-theme-info-a20: #b9e4ff;
@@ -60,6 +60,7 @@
     --font-mono: 'Courier New', Courier, monospace;
 }
 
+/* Base styles */
 body {
     background-color: var(--pantry-theme-surface-a0);
     color: var(--text-primary);
@@ -95,19 +96,12 @@ button {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.row {
-    display: flex;
-    //*    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    **/
-}
-
 .info {
     color: gray;
     font-style: italic;
 }
 
+/* Navigation */
 .navbar {
     display: flex;
     background-color: var(--pantry-theme-surface-tonal-a0);
@@ -145,31 +139,6 @@ button {
     margin-right: 10px;
 }
 
-.headerButtons {
-    justify-content: center;
-    gap: 12px;
-}
-
-.headerButtons button {
-    color: var(--pantry-theme-light-a0);
-    background-color: var(--pantry-theme-surface-tonal-a0);
-    border: 1px solid var(--pantry-theme-surface-tonal-a20);
-    border-radius: 8px;
-    padding: 8px 18px;
-    font-family: var(--font-stack);
-    font-weight: 500;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.headerButtons button:hover {
-    background-color: var(--pantry-theme-primary-a0);
-    border-color: var(--pantry-theme-primary-a0);
-    color: var(--pantry-theme-dark-a0);
-    transform: translateY(-1px);
-}
-
 .centerme {
     position: absolute;
     display: flex;
@@ -187,6 +156,7 @@ button {
     transition: color 0.2s ease;
 }
 
+/* Layout */
 .mainContent {
     display: flex;
     justify-content: center;
@@ -243,14 +213,12 @@ button {
 .reciperesults {
     margin-top: 1vh;
     padding: 1rem 2rem;
-    flex-direction: column;
     gap: 12px;
     border-radius: 1vh;
     background-color: var(--accent-color);
     border: 1px solid var(--border-color);
     max-height: 350px;
     overflow-y: auto;
-
     scrollbar-width: thin;
     scrollbar-color: rgb(0, 132, 255) var(--accent-color);
 }
@@ -290,6 +258,7 @@ button {
     background-color: var(--border-color);
 }
 
+/* Shopping lists */
 .ShoppingSection {
     order: 3;
     display: flex;
@@ -303,20 +272,7 @@ button {
     text-align: left;
 }
 
-.MissingShoppingList {
-    flex-direction: column;
-    gap: 8px;
-    padding: 1rem 2rem;
-    border: 1px solid var(--border-color);
-    border-radius: 1vh;
-    background-color: var(--accent-color);
-    max-height: 350px;
-    overflow-y: auto;
-
-    scrollbar-width: thin;
-    scrollbar-color: rgb(0, 132, 255) var(--accent-color);
-}
-
+.MissingShoppingList,
 .MatchingShoppingList {
     flex-direction: column;
     gap: 8px;
@@ -326,7 +282,6 @@ button {
     background-color: var(--accent-color);
     max-height: 350px;
     overflow-y: auto;
-
     scrollbar-width: thin;
     scrollbar-color: rgb(0, 132, 255) var(--accent-color);
 }
@@ -336,10 +291,6 @@ button {
     align-items: center;
     gap: 10px;
     background-color: var(--accent-color);
-    /*
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    */
 }
 
 .shoppingitem input[type="checkbox"] {

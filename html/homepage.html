@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/css/dark-theme.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="/css/dark-theme.css">
+    <script src="/js/theme.js" defer></script>
     <title>Homepage - PantryIQ</title>
 </head>
 
@@ -17,6 +18,10 @@
             <a href="/byIngredients">By Ingredients</a>
             <a href="/searchrecipes">Search Recipes</a>
             <a href="/favorites">Favorites</a>
+        </div>
+        <div class="theme-switcher" role="group" aria-label="Color theme">
+            <button class="theme-btn light-btn" type="button" data-theme="light">Light</button>
+            <button class="theme-btn dark-btn active" type="button" data-theme="dark" aria-current="true">Dark</button>
         </div>
     </div>
 
@@ -32,8 +37,6 @@
                     using</button><br>
                 <button onclick=" window.open('https://github.com/t1ssec/PantryIQ', '_blank' )">View on Github</button>
             </div>
-
-            <pre style="margin-top: 15vh;">Devs: tissec, BluelandsMC</pre>
         </div>
     </div>
 </body>

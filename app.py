@@ -56,9 +56,19 @@ def dark_theme():
     return serve_css("./css/dark-theme.css")
 
 
+@app.route("/css/white-theme.css")
+def white_theme():
+    return serve_css("./css/white-theme.css")
+
+
 @app.route("/js/shared.js")
 def sharedJs():
     return serve_json_script("./js/shared.js")
+
+
+@app.route("/js/theme.js")
+def themeJs():
+    return serve_json_script("./js/theme.js")
 
 
 @app.route("/js/byIngredients.js")

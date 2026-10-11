@@ -1,0 +1,53 @@
+@import url("/css/dark-theme.css");
+
+:root {
+    --pantry-theme-light-a0: #1c1c22;
+    --pantry-theme-dark-a0: #ffffff;
+
+    --pantry-theme-primary-a0: #625d7a;
+    --pantry-theme-primary-a10: #706b88;
+    --pantry-theme-primary-a20: #817c98;
+    --pantry-theme-primary-a30: #9691aa;
+    --pantry-theme-primary-a40: #aaa6ba;
+    --pantry-theme-primary-a50: #c1bed0;
+
+    --pantry-theme-surface-a0: #f5f5f8;
+    --pantry-theme-surface-a10: #ebebf0;
+    --pantry-theme-surface-a20: #dedee6;
+    --pantry-theme-surface-a30: #ceced8;
+    --pantry-theme-surface-a40: #aaaab8;
+    --pantry-theme-surface-a50: #666675;
+
+    --pantry-theme-surface-tonal-a0: #ffffff;
+    --pantry-theme-surface-tonal-a10: #f7f7fa;
+    --pantry-theme-surface-tonal-a20: #e6e6ed;
+    --pantry-theme-surface-tonal-a30: #d5d5df;
+    --pantry-theme-surface-tonal-a40: #c2c2cf;
+    --pantry-theme-surface-tonal-a50: #adadbd;
+
+    --pantry-theme-success-a0: #277a40;
+    --pantry-theme-success-a10: #378c50;
+    --pantry-theme-success-a20: #4a9d62;
+
+    --pantry-theme-warning-a0: #a86208;
+    --pantry-theme-warning-a10: #bd7513;
+    --pantry-theme-warning-a20: #d08b2d;
+
+    --pantry-theme-danger-a0: #c63f4d;
+    --pantry-theme-danger-a10: #d45762;
+    --pantry-theme-danger-a20: #e2767e;
+
+    --pantry-theme-info-a0: #1974a8;
+    --pantry-theme-info-a10: #3088ba;
+    --pantry-theme-info-a20: #4b9bca;
+
+    --bg-dark: var(--pantry-theme-surface-a0);
+    --card-bg: var(--pantry-theme-surface-tonal-a0);
+    --button-bg: var(--pantry-theme-surface-a10);
+    --card-hover: var(--pantry-theme-surface-tonal-a10);
+    --border-color: var(--pantry-theme-surface-tonal-a20);
+    --accent-color: var(--pantry-theme-surface-a10);
+    --accent-hover: var(--pantry-theme-surface-a20);
+    --text-primary: var(--pantry-theme-light-a0);
+    --text-secondary: var(--pantry-theme-surface-a50);
+}

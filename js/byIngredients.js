@@ -44,6 +44,22 @@ document.addEventListener('change', function (event) {
     }
 });
 
+recipeContainerDiv.addEventListener('click', event => {
+    if (!(event.target instanceof Element)) {
+        return;
+    }
+
+    const button = event.target.closest('.recipeFavorite');
+    if (!(button instanceof HTMLButtonElement)) {
+        return;
+    }
+
+    const isFavorite = button.getAttribute('aria-pressed') === 'true';
+    button.setAttribute('aria-pressed', String(!isFavorite));
+    button.setAttribute('aria-label', isFavorite ? 'Add to favorites' : 'Remove from favorites');
+    button.textContent = isFavorite ? '♡' : '♥';
+});
+
 function donetypingfunc() {
     console.log('The user stopped typing.');
     const userInput = typingInput.value;
@@ -60,9 +76,9 @@ function donetypingfunc() {
 
             if (!data.recipes || data.recipes.length === 0) {
                 recipeContainerDiv.innerHTML = `
-                <div class="reciperesult">
-                    <a>No recipes found</a>
-                    <a>Try searching for different ingredients</a>
+                <div class="recipeEmpty">
+                    <p>No recipes found</p>
+                    <p>Try searching for different ingredients.</p>
                 </div>
             `;
                 return;
@@ -84,15 +100,18 @@ function donetypingfunc() {
 
                 const jsonEscaped = JSON.stringify(ingredientsList).replace(/"/g, '&quot;');
                 recipeCard.innerHTML = `
+                    <div class="recipeMedia">
                         <img class="recipeImg" src="${recipe.image_url}" alt="${recipe.recipe_name}">
-                        <a>${recipe.recipe_name} </a>
-                        <hr>
-                        <a>${fullIngredientsString}</a>
+                        <button class="recipeFavorite" type="button" aria-label="Add to favorites" aria-pressed="false">♡</button>
+                    </div>
+                    <div class="recipeCardContent">
+                        <h2 class="recipeTitle">${recipe.recipe_name}</h2>
+                        <p class="recipeDescription">${fullIngredientsString}</p>
                         <div class="reciperesultbuttons">
                             <button onclick="window.open('https://${recipe.url}', '_blank')">View Result</button>
                             <button onclick="handleChooseBtnClick(${jsonEscaped})" id="chooseBtn">Choose</button>
-                            <button>Favorite *</button>
                         </div>
+                    </div>
             `;
 
                 recipeContainerDiv.appendChild(recipeCard);

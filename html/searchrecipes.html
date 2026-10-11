@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/css/dark-theme.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="/css/dark-theme.css">
+    <script src="/js/theme.js" defer></script>
     <script src="/js/shared.js" defer></script>
     <script src="/js/searchRecipes.js" defer></script>
     <title>ByIngredients - PantryIQ</title>
@@ -19,6 +20,10 @@
             <a href="/byIngredients">By Ingredients</a>
             <a class="active" href="/searchrecipes">Search Recipes</a>
             <a href="/favorites">Favorites</a>
+        </div>
+        <div class="theme-switcher" role="group" aria-label="Color theme">
+            <button class="theme-btn light-btn" type="button" data-theme="light">Light</button>
+            <button class="theme-btn dark-btn active" type="button" data-theme="dark" aria-current="true">Dark</button>
         </div>
     </div>
 
@@ -55,7 +60,6 @@
             </div>
         </div>
     </div>
-    <pre>Devs: tissec, BluelandsMC</pre>
 </body>
 
 </html>

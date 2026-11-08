@@ -69,7 +69,7 @@ function donetypingfunc() {
         return;
     }
 
-    fetch('/recipes/search/by-ingredients?q=' + encodeURIComponent(userInput) + '&allow_missing_ingredients=false')
+    fetch('/recipes/search/ingr?q=' + encodeURIComponent(userInput) + '&allow_missing_ingredients=false')
         .then(response => response.json())
         .then(data => {
             recipeContainerDiv.innerHTML = '';
@@ -102,7 +102,7 @@ function donetypingfunc() {
                 recipeCard.innerHTML = `
                     <div class="recipeMedia">
                         <img class="recipeImg" src="${recipe.image_url}" alt="${recipe.recipe_name}">
-                        <button class="recipeFavorite" type="button" aria-label="Add to favorites" aria-pressed="false">♡</button>
+                        <button class="recipeFavorite" type="button" aria-label="Add to favorites" data-food-name="${recipe.recipe_name}" aria-pressed="false">♡</button>
                     </div>
                     <div class="recipeCardContent">
                         <h2 class="recipeTitle">${recipe.recipe_name}</h2>

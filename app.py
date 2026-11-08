@@ -80,6 +80,10 @@ def byIngredientsJs():
 def searchRecipesJs():
     return serve_json_script("./js/searchRecipes.js")
 
+@app.route("/js/favorites.js")
+def favoritesJs():
+    return serve_json_script("./js/favorites.js")
+
 
 # PAGES -----------------------------------------------------------------------------------------------------------------
 
@@ -105,7 +109,7 @@ def searchrecipe():
 
 # SEARCH API ---------------------------------------------------------------------------------------------------------------
 
-@app.route("/recipes/search")
+@app.route("/recipes/search/name")
 def search():
     raw_search = request.args.get("q", "")
     page = request.args.get("page", 1, type=int)
@@ -119,7 +123,7 @@ def search():
     return {"recipes": recipes}
 
 
-@app.route("/recipes/search/by-ingredients")
+@app.route("/recipes/search/ingr")
 def by_ingredients():
     raw_search = request.args.get("q", "")
     page = request.args.get("page", 1, type=int)

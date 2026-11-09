@@ -7,31 +7,37 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link id="theme-stylesheet" rel="stylesheet" href="/css/dark-theme.css">
     <script src="/js/theme.js" defer></script>
+    <script src="/js/shared.js" defer></script>
+    <script src="/js/language.js" defer></script>
     <script src="/js/favorites.js" defer></script>
     <title>Favorites - PantryIQ</title>
 </head>
 
-<body>
+<body data-page-title="favoritesTitle">
     <!-- TOP BAR ---------------------------------------------------------------------------------------------->
     <div class="navbar">
         <a href="/"><img src="/favicon.ico" id="logo">PantryIQ</a>
-        <div class="centerme">
-            <a href="/byIngredients">By Ingredients</a>
-            <a href="/searchrecipes">Search Recipes</a>
-            <a class="active" href="/favorites">Favorites</a>
+        <div class="centerme" data-i18n-aria="navigationLabel">
+            <a href="/byIngredients" data-i18n="ingredientsLink">By Ingredients</a>
+            <a href="/searchrecipes" data-i18n="searchLink">Search Recipes</a>
+            <a class="active" href="/favorites" data-i18n="favoritesLink">Favorites</a>
         </div>
-        <div class="theme-switcher" role="group" aria-label="Color theme">
-            <button class="theme-btn light-btn" type="button" data-theme="light">Light</button>
-            <button class="theme-btn dark-btn active" type="button" data-theme="dark" aria-current="true">Dark</button>
+        <div class="navbar-controls">
+            <div class="language-switcher" role="group" data-i18n-aria="languageLabel">
+                <button class="language-btn" type="button" data-language="en" aria-pressed="true">EN</button>
+                <button class="language-btn" type="button" data-language="bg" aria-pressed="false">БГ</button>
+            </div>
+            <div class="theme-switcher" role="group" data-i18n-aria="themeLabel">
+                <button class="theme-btn light-btn" type="button" data-theme="light" data-i18n="lightTheme">Light</button>
+                <button class="theme-btn dark-btn active" type="button" data-theme="dark" aria-current="true" data-i18n="darkTheme">Dark</button>
+            </div>
         </div>
     </div>
 
     <div class="mainContent">
         <div class="otherMainContent">
-            <h1>Favorited Recipes</h1>
-            <div class="favrecipes">
-                <pre>Добави функционалност</pre>
-            </div>
+            <h1 data-i18n="favoritesTitle">Favorited Recipes</h1>
+            <div class="favrecipes" aria-live="polite"></div>
         </div>
     </div>
 </body>

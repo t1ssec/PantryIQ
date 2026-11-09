@@ -8,23 +8,30 @@
     <link id="theme-stylesheet" rel="stylesheet" href="/css/dark-theme.css">
     <script src="/js/theme.js" defer></script>
     <script src="/js/shared.js" defer></script>
+    <script src="/js/language.js" defer></script>
     <script src="/js/searchRecipes.js" defer></script>
     <script src="/js/favorites.js" defer></script>
     <title>ByIngredients - PantryIQ</title>
 </head>
 
-<body>
+<body data-page-title="searchPageTitle">
     <!-- TOP BAR ---------------------------------------------------------------------------------------------->
     <div class="navbar">
         <a href="/"><img src="/favicon.ico" id="logo">PantryIQ</a>
-        <div class="centerme">
-            <a href="/byIngredients">By Ingredients</a>
-            <a class="active" href="/searchrecipes">Search Recipes</a>
-            <a href="/favorites">Favorites</a>
+        <div class="centerme" data-i18n-aria="navigationLabel">
+            <a href="/byIngredients" data-i18n="ingredientsLink">By Ingredients</a>
+            <a class="active" href="/searchrecipes" data-i18n="searchLink">Search Recipes</a>
+            <a href="/favorites" data-i18n="favoritesLink">Favorites</a>
         </div>
-        <div class="theme-switcher" role="group" aria-label="Color theme">
-            <button class="theme-btn light-btn" type="button" data-theme="light">Light</button>
-            <button class="theme-btn dark-btn active" type="button" data-theme="dark" aria-current="true">Dark</button>
+        <div class="navbar-controls">
+            <div class="language-switcher" role="group" data-i18n-aria="languageLabel">
+                <button class="language-btn" type="button" data-language="en" aria-pressed="true">EN</button>
+                <button class="language-btn" type="button" data-language="bg" aria-pressed="false">БГ</button>
+            </div>
+            <div class="theme-switcher" role="group" data-i18n-aria="themeLabel">
+                <button class="theme-btn light-btn" type="button" data-theme="light" data-i18n="lightTheme">Light</button>
+                <button class="theme-btn dark-btn active" type="button" data-theme="dark" aria-current="true" data-i18n="darkTheme">Dark</button>
+            </div>
         </div>
     </div>
 
@@ -32,27 +39,32 @@
     <div class="mainContent">
         <div class="otherMainContent">
             <div class="InputSection">
-                <a>Search</a>
-                <input type="text" id="firstinputsection" placeholder="Type a recipe name:">
+                <a data-i18n="searchLabel">Search</a>
+                <input type="text" id="firstinputsection" data-i18n-placeholder="recipePlaceholder" placeholder="Type a recipe name:">
             </div>
             <div class="RecipeSection">
-                <a>Found Recipes</a>
+                <a data-i18n="foundRecipes">Found Recipes</a>
                 <div class="reciperesults">
-                    <p class="info">Try searching for something</p>
+                    <p class="info" data-i18n="searchPrompt">Try searching for something</p>
+                </div>
+                <div class="recipePagination" role="navigation" aria-label="Recipe pages" hidden>
+                    <button type="button" data-page-action="previous" data-i18n="previousPage">Previous</button>
+                    <span class="recipePageStatus" aria-live="polite"></span>
+                    <button type="button" data-page-action="next" data-i18n="nextPage">Next</button>
                 </div>
             </div>
             <div class="ShoppingSection">
-                <a>Ingredients you have</a>
+                <a data-i18n="ingredientsHave">Ingredients you have</a>
                 <div class="MissingShoppingList">
-                    <p class="info">Try choosing a recipe first.</p>
+                    <p class="info" data-i18n="choosePrompt">Try choosing a recipe first.</p>
                     <!--<div class="shoppingitem">
                         <input type="checkbox">
                         <a>200g Mozarella Cheese</a>
                     </div>-->
                 </div>
-                <a>Missing ingredients</a>
+                <a data-i18n="ingredientsMissing">Missing ingredients</a>
                 <div class="MatchingShoppingList">
-                    <p class="info">Try choosing a recipe first.</p>
+                    <p class="info" data-i18n="choosePrompt">Try choosing a recipe first.</p>
                     <!--<div class="shoppingitem">
                         <input type="checkbox">
                         <a>200g Mozarella Cheese</a>

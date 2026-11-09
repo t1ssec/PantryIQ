@@ -16,6 +16,10 @@ ENV/
 
 # dataset
 assets/dataset/full_dataset.csv
+assets/dataset/translation_cache.sqlite3
+assets/dataset/translation_cache.sqlite3-shm
+assets/dataset/translation_cache.sqlite3-wal
+assets/libretranslate/
 
 
 # Node.js / Web

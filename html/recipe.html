@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link id="theme-stylesheet" rel="stylesheet" href="/css/dark-theme.css">
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/shared.js" defer></script>
+    <script src="/js/language.js" defer></script>
+    <script src="/js/recipe.js" defer></script>
+    <title>Recipe - PantryIQ</title>
+</head>
+
+<body data-page-title="recipePageTitle">
+    <div class="navbar">
+        <a href="/" aria-label="PantryIQ home"><img src="/favicon.ico" id="logo">PantryIQ</a>
+        <div class="centerme" data-i18n-aria="navigationLabel">
+            <a href="/byIngredients" data-i18n="ingredientsLink">By Ingredients</a>
+            <a href="/searchrecipes" data-i18n="searchLink">Search Recipes</a>
+            <a href="/favorites" data-i18n="favoritesLink">Favorites</a>
+        </div>
+        <div class="navbar-controls">
+            <div class="language-switcher" role="group" data-i18n-aria="languageLabel">
+                <button class="language-btn" type="button" data-language="en" aria-pressed="true">EN</button>
+                <button class="language-btn" type="button" data-language="bg" aria-pressed="false">БГ</button>
+            </div>
+            <div class="theme-switcher" role="group" data-i18n-aria="themeLabel">
+                <button class="theme-btn light-btn" type="button" data-theme="light" data-i18n="lightTheme">Light</button>
+                <button class="theme-btn dark-btn active" type="button" data-theme="dark" aria-current="true" data-i18n="darkTheme">Dark</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="mainContent">
+        <div class="otherMainContent recipePageContent">
+            <p class="recipePageMessage info" data-i18n="recipeLoading">Loading recipe...</p>
+            <article class="recipeDetail" hidden>
+                <section class="recipeDetailHero">
+                    <img class="recipeDetailImage" alt="">
+                    <div class="recipeDetailShade"></div>
+                    <div class="recipeDetailHeroContent">
+                        <a class="recipeBackLink" href="/searchrecipes" data-i18n="backToRecipes">Back to recipes</a>
+                        <h1 class="recipeDetailTitle"></h1>
+                        <p class="recipeDetailDescription"></p>
+                    </div>
+                </section>
+                <div class="recipeDetailBody">
+                    <div class="recipeDetailMeta">
+                        <p><span data-i18n="servingsLabel">Servings</span>: <span class="recipeServings"></span></p>
+                        <p><span data-i18n="caloriesLabel">Calories</span>: <span class="recipeCalories"></span></p>
+                    </div>
+                    <section class="recipeIngredientsSection">
+                        <h2 data-i18n="ingredientsHeading">Ingredients</h2>
+                        <ul class="recipeIngredientList"></ul>
+                    </section>
+                    <a class="originalSourceLink" target="_blank" rel="noopener noreferrer">
+                        <span data-i18n="originalSource">Original Source</span>
+                        <span class="recipeSourceName"></span>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </main>
+</body>
+
+</html>

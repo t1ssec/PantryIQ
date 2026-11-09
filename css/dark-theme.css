@@ -172,6 +172,70 @@ button {
     background-color: var(--pantry-theme-surface-a0);
 }
 
+.navbar-controls {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    gap: 0.45rem;
+}
+
+.language-switcher {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    padding: 0.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background-color: var(--pantry-theme-surface-a0);
+}
+
+.language-switcher::before {
+    position: absolute;
+    inset: 0.25rem;
+    width: calc(50% - 0.325rem);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background-color: var(--card-bg);
+    content: "";
+    transition: transform 0.2s ease;
+}
+
+.language-switcher[data-selected-language="bg"]::before {
+    transform: translateX(calc(100% + 0.15rem));
+}
+
+.language-btn {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    min-width: 2.4rem;
+    padding: 0.4rem 0.55rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.language-btn:hover {
+    background-color: var(--pantry-theme-surface-a10);
+    color: var(--text-primary);
+}
+
+.language-btn.active,
+.language-btn[aria-pressed="true"] {
+    color: var(--text-primary);
+}
+
+.language-btn:focus-visible {
+    outline: 2px solid var(--pantry-theme-primary-a20);
+    outline-offset: 2px;
+}
+
 .theme-btn {
     flex: 0 0 auto;
     padding: 0.4rem 0.7rem;
@@ -262,14 +326,166 @@ button {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
     align-items: stretch;
+    align-content: start;
     gap: 1rem;
     border-radius: 1vh;
     background-color: var(--accent-color);
     border: 1px solid var(--border-color);
-    max-height: 350px;
-    overflow-y: auto;
+    height: auto;
+    overflow: visible;
     scrollbar-width: thin;
     scrollbar-color: rgb(0, 132, 255) var(--accent-color);
+}
+
+.favrecipes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    align-items: stretch;
+    gap: 1rem;
+}
+
+.recipePagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.85rem;
+}
+
+.recipePagination[hidden] {
+    display: none;
+}
+
+.recipePagination button {
+    flex: 0 0 auto;
+}
+
+.recipePageStatus {
+    min-width: 5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.recipePageContent {
+    padding: clamp(1rem, 3vw, 2.5rem);
+}
+
+.recipeDetailHero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: clamp(19rem, 46vw, 34rem);
+    overflow: hidden;
+    border-radius: 14px;
+    background-color: var(--pantry-theme-surface-a10);
+}
+
+.recipeDetailImage,
+.recipeDetailShade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.recipeDetailImage {
+    object-fit: cover;
+}
+
+.recipeDetailShade {
+    background: linear-gradient(180deg, rgb(0 0 0 / 5%) 20%, rgb(0 0 0 / 82%) 100%);
+}
+
+.recipeDetailHeroContent {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: clamp(1.25rem, 4vw, 3rem);
+    color: #fff;
+}
+
+.recipeBackLink {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.recipeDetailTitle {
+    max-width: 52rem;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.08;
+    text-align: left;
+    text-wrap: balance;
+}
+
+.recipeDetailDescription {
+    max-width: 52rem;
+    margin: 1rem 0 0;
+    color: rgb(255 255 255 / 92%);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.55;
+}
+
+.recipeDetailBody {
+    max-width: 58rem;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 4vw, 3rem) 0 0;
+}
+
+.recipeDetailMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.recipeDetailMeta p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.recipeDetailMeta span:last-child {
+    color: var(--text-primary);
+    font-weight: 650;
+}
+
+.recipeIngredientsSection h2 {
+    margin: 1.5rem 0 0.75rem;
+    font-family: var(--font-mono);
+}
+
+.recipeIngredientList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 0.5rem 2rem;
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.recipeIngredientList li {
+    padding: 0.35rem 0;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.originalSourceLink {
+    display: inline-flex;
+    gap: 0.35rem;
+    margin-top: 2rem;
+    color: var(--pantry-theme-info-a0);
+    font-family: var(--font-stack);
+    font-weight: 650;
+    text-underline-offset: 0.2em;
+}
+
+.recipePageMessage {
+    text-align: center;
 }
 
 .reciperesult {
@@ -532,6 +748,10 @@ pre {
     .reciperesultbuttons {
         flex-direction: column;
     }
+
+    .recipeDetailHero {
+        min-height: 22rem;
+    }
 }
 
 @media (max-width: 680px) {
@@ -547,6 +767,12 @@ pre {
         justify-content: center;
         flex-wrap: wrap;
         gap: 0.15rem;
+    }
+
+    .navbar-controls {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        justify-self: center;
     }
 
     .centerme a {

@@ -7,35 +7,41 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link id="theme-stylesheet" rel="stylesheet" href="/css/dark-theme.css">
     <script src="/js/theme.js" defer></script>
+    <script src="/js/language.js" defer></script>
     <title>Homepage - PantryIQ</title>
 </head>
 
-<body>
+<body data-page-title="homeTitle">
     <!-- TOP BAR ---------------------------------------------------------------------------------------------->
     <div class="navbar">
-        <a href="/"><img src="/favicon.ico" id="logo">PantryIQ</a>
-        <div class="centerme">
-            <a href="/byIngredients">By Ingredients</a>
-            <a href="/searchrecipes">Search Recipes</a>
-            <a href="/favorites">Favorites</a>
+        <a href="/" aria-label="PantryIQ home"><img src="/favicon.ico" id="logo">PantryIQ</a>
+        <div class="centerme" data-i18n-aria="navigationLabel">
+            <a href="/byIngredients" data-i18n="ingredientsLink">By Ingredients</a>
+            <a href="/searchrecipes" data-i18n="searchLink">Search Recipes</a>
+            <a href="/favorites" data-i18n="favoritesLink">Favorites</a>
         </div>
-        <div class="theme-switcher" role="group" aria-label="Color theme">
-            <button class="theme-btn light-btn" type="button" data-theme="light">Light</button>
-            <button class="theme-btn dark-btn active" type="button" data-theme="dark" aria-current="true">Dark</button>
+        <div class="navbar-controls">
+            <div class="language-switcher" role="group" data-i18n-aria="languageLabel">
+                <button class="language-btn" type="button" data-language="en" aria-pressed="true">EN</button>
+                <button class="language-btn" type="button" data-language="bg" aria-pressed="false">БГ</button>
+            </div>
+            <div class="theme-switcher" role="group" data-i18n-aria="themeLabel">
+                <button class="theme-btn light-btn" type="button" data-theme="light" data-i18n="lightTheme">Light</button>
+                <button class="theme-btn dark-btn active" type="button" data-theme="dark" aria-current="true" data-i18n="darkTheme">Dark</button>
+            </div>
         </div>
     </div>
 
     <div class="mainContent">
         <div class="otherMainContent">
 
-            <h1>Welcome to PantryIQ</h1>
+            <h1 data-i18n="homeTitle">Welcome to PantryIQ</h1>
             <pre
-                style="margin-bottom: 50px;">Search for recipes and find what to cook <br> based on the ingredients you already have.</pre>
+                data-i18n="homeDescription" style="margin-bottom: 50px;">Search for recipes and find what to cook based on the ingredients you already have.</pre>
 
             <div style="display: flex; flex-direction: column; width: 20%; margin: 0 auto;">
-                <button onclick="window.open('/byIngredients', '_self')">Start
-                    using</button><br>
-                <button onclick=" window.open('https://github.com/t1ssec/PantryIQ', '_blank' )">View on Github</button>
+                <button onclick="window.open('/byIngredients', '_self')" data-i18n="startUsing">Start using</button><br>
+                <button onclick=" window.open('https://github.com/t1ssec/PantryIQ', '_blank' )" data-i18n="viewGithub">View on Github</button>
             </div>
         </div>
     </div>

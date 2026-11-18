@@ -2,8 +2,6 @@
 
 PantryIQ is a local web application that helps you find recipes by name or by the ingredients you already have. It includes recipe details, saved favorites, paginated results, dark and light themes, and English/Bulgarian translation.
 
-![PantryIQ logo](assets/logo/pl.png)
-
 ## Features
 
 - Search the recipe dataset by recipe name
